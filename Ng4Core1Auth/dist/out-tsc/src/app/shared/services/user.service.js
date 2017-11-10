@@ -21,30 +21,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var config_service_1 = require("../utils/config.service");
 var base_service_1 = require("./base.service");
-var Rx_1 = require("rxjs/Rx");
+var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
+//import { BehaviorSubject } from 'rxjs/Rx';
+require("../../rxjs-operators");
 var UserService = (function (_super) {
     __extends(UserService, _super);
-    function UserService(http) {
+    function UserService(http, configService) {
         var _this = _super.call(this) || this;
         _this.http = http;
-        _this._authNavStatusSource = new Rx_1.BehaviorSubject(false);
+        _this.configService = configService;
+        _this.baseUrl = '';
+        _this._authNavStatusSource = new BehaviorSubject_1.BehaviorSubject(false);
         _this.authNavStatus$ = _this._authNavStatusSource.asObservable();
         _this.loggedIn = false;
         _this.loggedIn = !!localStorage.getItem('auth_token');
         _this._authNavStatusSource.next(_this.loggedIn);
+        _this.baseUrl = configService.getApiURI();
         return _this;
     }
+    UserService.prototype.register = function (email, password, firstName, lastName, location) {
+        var body = JSON.stringify({ email: email, password: password, firstName: firstName, lastName: lastName, location: location });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.baseUrl + "/accounts", body, options)
+            .map(function (res) { return true; })
+            .catch(this.handleError);
+    };
+    UserService.prototype.login = function (userName, password) {
+        var _this = this;
+        var headers = new http_1.Headers();
+        headers.append('Content-type', 'application/json');
+        return this.http
+            .post(this.baseUrl + '/auth/login', JSON.stringify({ userName: userName, password: password }), { headers: headers })
+            .map(function (res) { return res.json(); })
+            .map(function (res) {
+            localStorage.setItem('auth_token', res.auth_token);
+            _this.loggedIn = true;
+            _this._authNavStatusSource.next(true);
+            return true;
+        })
+            .catch(this.handleError);
+    };
     UserService.prototype.logout = function () {
         localStorage.removeItem('auth_token');
         this.loggedIn = false;
         this._authNavStatusSource.next(false);
     };
+    UserService.prototype.isLoggedIn = function () {
+        return this.loggedIn;
+    };
     return UserService;
 }(base_service_1.BaseService));
 UserService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, config_service_1.ConfigService])
 ], UserService);
 exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map

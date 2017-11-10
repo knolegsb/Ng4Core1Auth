@@ -6,11 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\app\account\account.module.ts" />
+    <None Remove="src\app\account\account.routing.ts" />
+    <None Remove="src\app\account\login\login.component.ts" />
     <None Remove="src\app\app.routing.ts" />
     <None Remove="src\app\header\header.component.ts" />
     <None Remove="src\app\home\home.component.ts" />
+    <None Remove="src\app\shared\auth.guard.ts" />
+    <None Remove="src\app\shared\directives\email.validator.directive.ts" />
+    <None Remove="src\app\shared\directives\focus.directive.ts" />
+    <None Remove="src\app\shared\models\credentials.ts" />
+    <None Remove="src\app\shared\models\user.registration.ts" />
     <None Remove="src\app\shared\services\base.service.ts" />
     <None Remove="src\app\shared\services\user.service.ts" />
+    <None Remove="src\app\shared\shared.module.ts" />
+    <None Remove="src\app\shared\spinner\spinner.component.ts" />
+    <None Remove="src\app\shared\utils\config.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,11 +48,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\account\account.module.ts" />
+    <TypeScriptCompile Include="src\app\account\account.routing.ts" />
+    <TypeScriptCompile Include="src\app\account\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\account\registration\registration.component.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
     <TypeScriptCompile Include="src\app\header\header.component.ts" />
     <TypeScriptCompile Include="src\app\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\auth.guard.ts" />
+    <TypeScriptCompile Include="src\app\shared\directives\email.validator.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\directives\focus.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\models\credentials.ts" />
+    <TypeScriptCompile Include="src\app\shared\models\user.registration.ts" />
     <TypeScriptCompile Include="src\app\shared\services\base.service.ts" />
     <TypeScriptCompile Include="src\app\shared\services\user.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\shared.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\spinner\spinner.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\utils\config.service.ts" />
   </ItemGroup>
 
 </Project>
