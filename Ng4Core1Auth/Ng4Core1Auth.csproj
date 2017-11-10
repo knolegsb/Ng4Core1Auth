@@ -7,7 +7,10 @@
 
   <ItemGroup>
     <None Remove="src\app\app.routing.ts" />
+    <None Remove="src\app\header\header.component.ts" />
     <None Remove="src\app\home\home.component.ts" />
+    <None Remove="src\app\shared\services\base.service.ts" />
+    <None Remove="src\app\shared\services\user.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +38,10 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app.routing.ts" />
+    <TypeScriptCompile Include="src\app\header\header.component.ts" />
     <TypeScriptCompile Include="src\app\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\base.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\user.service.ts" />
   </ItemGroup>
 
 </Project>
