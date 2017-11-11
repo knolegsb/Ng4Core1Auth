@@ -10,6 +10,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var authenticate_xhr_backend_1 = require("./authenticate-xhr.backend");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
 var header_component_1 = require("./header/header.component");
@@ -36,7 +37,10 @@ AppModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule
         ],
-        providers: [config_service_1.ConfigService],
+        providers: [config_service_1.ConfigService, {
+                provide: http_1.XHRBackend,
+                useClass: authenticate_xhr_backend_1.AuthenticateXHRBackend
+            }],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

@@ -10,6 +10,13 @@
     <None Remove="src\app\account\account.routing.ts" />
     <None Remove="src\app\account\login\login.component.ts" />
     <None Remove="src\app\app.routing.ts" />
+    <None Remove="src\app\authenticate-xhr.backend.ts" />
+    <None Remove="src\app\dashboard\dashboard.module.ts" />
+    <None Remove="src\app\dashboard\dashboard.routing.ts" />
+    <None Remove="src\app\dashboard\home\home.component.ts" />
+    <None Remove="src\app\dashboard\models\home.details.ts" />
+    <None Remove="src\app\dashboard\root\root.component.ts" />
+    <None Remove="src\app\dashboard\services\dashboard.service.ts" />
     <None Remove="src\app\header\header.component.ts" />
     <None Remove="src\app\home\home.component.ts" />
     <None Remove="src\app\shared\auth.guard.ts" />
@@ -53,6 +60,13 @@
     <TypeScriptCompile Include="src\app\account\login\login.component.ts" />
     <TypeScriptCompile Include="src\app\account\registration\registration.component.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
+    <TypeScriptCompile Include="src\app\authenticate-xhr.backend.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\dashboard.module.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\dashboard.routing.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\models\home.details.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\root\root.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\services\dashboard.service.ts" />
     <TypeScriptCompile Include="src\app\header\header.component.ts" />
     <TypeScriptCompile Include="src\app\home\home.component.ts" />
     <TypeScriptCompile Include="src\app\auth.guard.ts" />
